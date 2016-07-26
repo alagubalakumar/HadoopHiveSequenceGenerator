@@ -13,33 +13,7 @@ stop the service : java -jar stop.jar  -mp {monitoring port - used to stop}
 
 Implement the UDF Function as follows
 
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
 
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.hadoop.hive.ql.exec.Description;
-import org.apache.hadoop.hive.ql.exec.MapredContext;
-import org.apache.hadoop.hive.ql.exec.UDFArgumentException;
-import org.apache.hadoop.hive.ql.metadata.HiveException;
-import org.apache.hadoop.hive.ql.session.SessionState;
-import org.apache.hadoop.hive.ql.udf.UDFType;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDF;
-import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;
-import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectInspectorFactory;
-import org.apache.hadoop.io.LongWritable;
-
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.core.util.MultivaluedMapImpl;
-
-
-@Description(name = "UniqueIDGenericUDF", value = "_FUNC_() - Returns a generated uniq id with the"
-		+ " combination of supplied unique refresh id + generated no")
-@UDFType(deterministic = false, stateful = true)
 public class ServiceIDGenericUDF extends GenericUDF {
 
 	private String seqServiceIP = null;
@@ -123,6 +97,7 @@ public class ServiceIDGenericUDF extends GenericUDF {
 		return responseMap;
 	}	
 }
+
 
 Develop the Jar of the uDF
 
