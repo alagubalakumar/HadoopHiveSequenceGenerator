@@ -6,9 +6,9 @@ by
 build the project it will generate start.jar and stop.jar
 This will generate a sequence of range of number on demand , that will used in the hive udf to get and generate the sequence in between once exhausted ,it can be called further to get unused range.
 
-start the service :  java -jar start.jar  -sp <port of the server> -mp <monitoring port - used to stop> -r <range to generate>
+start the service :  java -jar start.jar  -sp {port of the server} -mp {monitoring port - used to stop} -r {range to generate}
 
-stop the service : java -jar stop.jar  -mp <monitoring port - used to stop>
+stop the service : java -jar stop.jar  -mp {monitoring port - used to stop}
 
 
 Implement the UDF Function as follows
@@ -128,6 +128,6 @@ Develop the Jar of the uDF
 
 Step 1: ADD JAR <jar file>;
 Step 2: CREATE TEMPORARY FUNCTION seqIDUDF AS '<class name in the udf>';
-Step 3: set seqgenservice=<MIP>:<port>;
+Step 3: set seqgenservice={MIP}:{port};
 Step 4: set hive.execution.engine=mr; (due to some dependency issue udf is not working with tez)
-Step 5: select seqIDUDF(<some external integer which is unique which is appended in front of the sequnce>);
+Step 5: select seqIDUDF({some external integer which is unique which is appended in front of the sequnce});
