@@ -1,1 +1,0 @@
-java -jar stop.jar  -mp %1 
