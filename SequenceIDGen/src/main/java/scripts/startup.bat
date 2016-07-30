@@ -1,0 +1,1 @@
+java -jar start.jar  -sp %1 -mp %2 -r %3
